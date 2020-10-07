@@ -1,0 +1,36 @@
+1. Implemente a função mmax que toma como argumentos uma função de medição (de
+tipo a −> Int) e dois valores do tipo a. A função de medição deve ser aplicada aos dois
+outros argumentos e retornar o argumento para o qual a função de medição retorna o
+valor mais alto
+mmax (∗2 ) 3 5 ==> 5
+mmax l e n g t h [ 1 , 2 , 3 ] [ 4 , 5 ] ==> [ 1 , 2 , 3 ]
+mmax head [ 1 , 2 , 3 ] [ 4 , 5 ] ==> [ 4 , 5 ]
+2. A função countSorted recebe uma lsita de strings e retornar quantas delas estão em
+ordem alfabética. Usar as funções map, fllter e sort
+3. Implemente a função mStr que
+• recebe uma string com entrada
+• retorna uma string que
+– contém todas as palavras de entrada com tamanho maior que 5
+– combinadas em uma única string, separadas por espaços
+– e convertidas em letras maiúsculas
+Funções que podem auxiliar
+toUpper : : Char −> Char −− modulo Data . Char
+i n t e r c a l a t e : : [ a ] −> [ [ a ] ] −> [ a ] −− modulo Data . L i s t
+4. A função powers k max deve retornar todas as potências de k que são menores que ou
+iguais a max. Por exemplo,
+powers 2 5 ==> [ 1 , 2 , 4 ]
+powers 3 30 ==> [ 1 , 3 , 9 , 2 7 ]
+powers 2 2 ==> [ 1 , 2 ]
+Dicas
+• n
+max > max
+• use a função takeWhile
+5. Compute a somas parciais de listas dadas. Por exemplo:
+sumsOf [ a , b , c ] ==> [ a , a+b , a+b+c ]
+sumsOf [ a , b ] ==> [ a , a+b ]
+sumsOf [ ] ==> [ ]
+
+6. Escreva uma função que encontra os n primeiros quadrados que começam e terminam
+com o mesmo dígito. Por exemplo,
+squares 9 ==> [1,4,9,121,484,676,1521,1681,4624]
+Lembre-se que a função show transforma um número em uma string

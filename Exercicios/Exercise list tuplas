@@ -1,0 +1,12 @@
+1.Defina a função menorMaior que recebe três inteiros e retorna uma tupla com o menor e o maior deles, respectivamente.
+2. Defina a função ordenaTripla que recebe uma tripla de inteiros e ordena a mesma.
+3. Uma linha pode ser representada da seguinte forma
+type Ponto = ( Float , Float )
+type Reta = (Ponto , Ponto )
+• Defina funções para
+– retornar a primeira coordenada de um ponto
+– retornar a segunda coordenada de um ponto
+– indicar se uma reta é vertical ou não ( x1 = x2)
+4. Se uma reta é dada por (y − y1)/(x − x1) = (y2 − y1)/(x2 − x1),
+defina uma função pontoY :: Float −> Reta −> Float que, dada uma coordenada x e
+uma reta, retorne a coordenada y, tal que o ponto (x, y) faça parte da reta.

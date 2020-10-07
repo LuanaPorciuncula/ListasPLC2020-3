@@ -1,0 +1,19 @@
+1. Descobrir como duas listas diferem uma da outra. Se tiverem comprimentos diferentes,
+devolva
+Just "<comprimento da lista> /= <comprimento de outra lista>"
+
+Se tiverem o mesmo comprimento, encontrar o primeiro índice i para o qual os os ele-
+mentos diferem, e o retorno
+
+Just "<valor no indice i> /= < outro valor no indice i>" ,
+Se as listas forem as mesmas, devolver Nothing
+Escreva a assinatura de tipo para findDifference . Que classes de tipo são necessárias?
+Exemplos
+findDifference [True,False] [True,True] ==> Just "False /= True"
+findDifference [0,0,0] [0,0,0,0] ==> Just "3 /= 4"
+2. Este é um tipo para um vetor 3D. Implemente uma instância de Eq para ele.
+3. Calcular quantas vezes cada valor da lista ocorre. Devolver as frequências como uma
+lista de pares (frequência,valor). Dica: pode usar funções de Data.List
+Exemplo:
+freqs [False ,False ,False ,True] ==> [(3,False),(1,True)]
+4. Implemente uma instância de Eq para o seguinte tipo de árvore binária.
