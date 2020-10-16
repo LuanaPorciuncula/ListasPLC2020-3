@@ -19,4 +19,6 @@ soma nat1 Zero = nat1
 soma Zero nat2 = nat2
 soma nat (Succ n) = Succ (soma nat n)
 
--- 
+-- d)
+mult :: Nat -> Nat -> Nat
+mult nat1 nat2 = int2Nat (nat2Int nat1 * nat2Int nat2)
