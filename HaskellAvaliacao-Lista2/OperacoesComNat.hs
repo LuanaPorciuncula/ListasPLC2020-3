@@ -14,4 +14,9 @@ nat2Int (Succ n) = 1 + nat2Int n
 
 -- c)
 soma :: Nat -> Nat -> Nat
-soma nat1 nat2 = int2Nat (nat2Int nat1 + nat2Int nat2)
+--soma nat1 nat2 = int2Nat (nat2Int nat1 + nat2Int nat2)
+soma nat1 Zero = nat1
+soma Zero nat2 = nat2
+soma nat (Succ n) = Succ (soma nat n)
+
+-- 
