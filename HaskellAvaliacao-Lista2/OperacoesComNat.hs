@@ -11,3 +11,7 @@ int2Nat n = Succ (int2Nat (n-1))
 nat2Int :: Nat -> Int
 nat2Int Zero = 0
 nat2Int (Succ n) = 1 + nat2Int n
+
+-- c)
+soma :: Nat -> Nat -> Nat
+soma nat1 nat2 = int2Nat (nat2Int nat1 + nat2Int nat2)
