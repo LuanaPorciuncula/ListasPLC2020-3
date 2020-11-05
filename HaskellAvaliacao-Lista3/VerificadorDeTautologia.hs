@@ -44,3 +44,21 @@ toBinary n bsize
  | bsize == 0 = []
  | bsize == 1 = [(mod n 2 == 1)]
  | otherwise  = (mod n 2 == 1):(toBinary (div n 2) (bsize - 1))
+
+--f)
+removeDup :: [Char] -> [Char]
+removeDup list
+ | null list                    = []
+ | elem (head list) (tail list) = removeDup (tail list)
+ | otherwise                    = (head list):removeDup (tail list)
+
+substs :: Prop -> [Subst]
+substs prop = substs' ((removeDup . vars) prop) ((bools . length) ((removeDup . vars) prop))
+
+substs' :: [Char] -> [[Bool]] -> [Subst]
+substs' var valuesList = [makeSubst var x | x <- valuesList]
+
+makeSubst :: [Char] -> [Bool] -> Subst
+makeSubst var values
+ | null var  = []
+ | otherwise = (head var, head values):makeSubst (tail var) (tail values)
