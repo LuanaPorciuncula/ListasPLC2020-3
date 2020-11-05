@@ -62,3 +62,13 @@ makeSubst :: [Char] -> [Bool] -> Subst
 makeSubst var values
  | null var  = []
  | otherwise = (head var, head values):makeSubst (tail var) (tail values)
+
+--g)
+isTaut :: Prop -> Bool
+isTaut prop = isTaut' prop (substs prop)
+
+isTaut' :: Prop -> [Subst] -> Bool 
+isTaut' prop subs
+ | length subs <= 1            = eval (head subs) prop
+ | not (eval (head subs) prop) = False
+ | otherwise                   = isTaut' prop (tail subs)
