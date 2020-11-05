@@ -41,7 +41,5 @@ bools' i n = (toBinary i n):(bools' (i-1) n)
 
 toBinary :: Int -> Int -> [Bool]
 toBinary n bsize 
- | (bsize == 1) && (mod n 2 == 1) = [True]
- | (bsize == 1) && (mod n 2 == 0) = [False]
- | mod n 2 == 1                   = True:(toBinary (div n 2) (bsize - 1))
- | otherwise                      = False:(toBinary (div n 2) (bsize - 1))
+ | (bsize == 1) = [(mod n 2 == 1)]
+ | otherwise    = (mod n 2 == 1):(toBinary (div n 2) (bsize - 1))
