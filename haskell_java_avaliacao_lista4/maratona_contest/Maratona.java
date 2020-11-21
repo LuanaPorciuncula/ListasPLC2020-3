@@ -8,7 +8,7 @@ public class Maratona {
             System.out.println("Iniciar contest? (s/n)");
             String ans = in.nextLine();
 
-            if (ans.equals("s")) {
+            if (ans.equalsIgnoreCase("s")) {
                 System.out.println("Quantos times irão participar?");
                 int nTimes = in.nextInt();
 
@@ -30,7 +30,7 @@ public class Maratona {
                     System.out.println("Time:" + endResultadoSort[0][i] + " -> Questoes:" + endResultadoSort[1][i]);
                 }
 
-            } else if (ans.equals("n")) {
+            } else if (ans.equalsIgnoreCase("n")) {
                 ctst = false;
                 System.out.println("Fim da maratona!");
             } else {
