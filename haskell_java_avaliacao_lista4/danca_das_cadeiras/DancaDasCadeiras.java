@@ -29,13 +29,13 @@ class DancaDasCadeiras {
 
 class Danca {
 
-    private int nCadeirasOcupadas;
+    private AtomicInteger nCadeirasOcupadas;
     private int nJogadores;
     private AtomicBoolean[] cadeiras;
     private ArrayList<Jogador> jogadores;
 
     public Danca(int nJogadores) {
-        this.nCadeirasOcupadas = 0;
+        this.nCadeirasOcupadas = new AtomicInteger(0);
         this.nJogadores = nJogadores;
     }
 
@@ -48,11 +48,11 @@ class Danca {
     }
 
     public boolean temCadeiraLivre() {
-        return this.cadeiras.length > nCadeirasOcupadas;
+        return this.cadeiras.length > nCadeirasOcupadas.get();
     }
 
     public void resetCadeiras(){
-        this.nCadeirasOcupadas = 0;
+        this.nCadeirasOcupadas = new AtomicInteger(0);
         this.cadeiras = new AtomicBoolean[this.jogadores.size() - 1];
         for (int i = 0; i < this.jogadores.size() - 1; i++) {
             this.cadeiras[i] = new AtomicBoolean(false);
@@ -96,7 +96,7 @@ class Danca {
     public boolean sentar(int cadeira, int idJogador) {
         
         if (!this.cadeiras[cadeira].getAndSet(true)) {// Lugar está livre
-            this.nCadeirasOcupadas++;
+            this.nCadeirasOcupadas.getAndIncrement();
             //System.out.println("O jogador " + idJogador + " sentou na cadeira : " + cadeira);
             return true;
         } else {// Lugar não estava livre
@@ -128,8 +128,10 @@ class Jogador implements Runnable {
     public void run() {
         Random random = new Random();
         this.sentou = false;
+        int cadeira;
         while (!this.sentou && this.danca.temCadeiraLivre()) {
-            this.sentou = this.danca.sentar(random.nextInt(this.danca.getCadeirasLength()), this.id);
+            cadeira = random.nextInt(this.danca.getCadeirasLength());
+            this.sentou = this.danca.sentar(cadeira, this.id);
         }
     }
 }
