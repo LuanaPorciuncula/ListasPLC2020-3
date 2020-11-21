@@ -95,13 +95,12 @@ class Danca {
 
     public boolean sentar(int cadeira, int idJogador) {
         
-        if (!this.cadeiras[cadeira].get()) {// Lugar está livre
-            this.cadeiras[cadeira].set(true);
+        if (!this.cadeiras[cadeira].getAndSet(true)) {// Lugar está livre
             this.nCadeirasOcupadas++;
-            System.out.println("O jogador " + idJogador + " sentou na cadeira : " + cadeira);
+            //System.out.println("O jogador " + idJogador + " sentou na cadeira : " + cadeira);
             return true;
         } else {// Lugar não estava livre
-            System.out.println("O jogador " + idJogador + " falhou em sentar na cadeira : " + cadeira);
+            //System.out.println("O jogador " + idJogador + " falhou em sentar na cadeira : " + cadeira);
             return false;
         }
     }
