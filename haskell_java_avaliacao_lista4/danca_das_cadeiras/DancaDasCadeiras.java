@@ -1,5 +1,3 @@
-package danca_das_cadeiras;
-
 import java.util.*;
 //import java.util.concurrent.*;
 import java.util.concurrent.atomic.*;
